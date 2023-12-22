@@ -10,12 +10,15 @@ import AuthProvider from "./Provider/AuthProvider";
 import DashBoard from "./Component/DashBoard/DashBoard";
 import AddFeatures from "./Component/DashBoard/AdminRoute/AddFeatures";
 import AddDoctors from "./Component/DashBoard/AdminRoute/AddDoctors";
+import Appointment from "./Pages/Appointment/Appointment";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query"; // Import from '@tanstack/react-query'
 import ManageUsers from "./Component/DashBoard/AdminRoute/ManageUser/ManageUsers";
 import AddBlog from "./Pages/Home/Blogs/AddBlog";
 import Gallery from "./Pages/Gallery/Gallery";
 import Review from "./Component/DashBoard/Review/Review";
 import AllReview from "./Component/DashBoard/AllReview/AllReview";
+import MyAppointments from "./Component/DashBoard/MyAppointments/MyAppointments";
+import AllAppointments from "./Component/DashBoard/AllAppointments/AllAppointments";
 
 const queryClient = new QueryClient();
 
@@ -69,6 +72,22 @@ const router = createBrowserRouter([
       {
         path: "all-review",
         element: <AllReview></AllReview>,
+      },
+      {
+        path: "appointment",
+        element: <Appointment></Appointment>,
+      },
+      {
+        path: "my-appointment",
+        element: <MyAppointments></MyAppointments>,
+      },
+      {
+        path: "all-appointment",
+        element: <AllAppointments></AllAppointments>,
+      },
+      {
+        path: "addBlog",
+        element: <AddBlog></AddBlog>,
       },
     ],
   },

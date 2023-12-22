@@ -1,6 +1,7 @@
 import { Link, Outlet } from "react-router-dom";
 import {
   FaBlog,
+  FaBookMedical,
   FaComment,
   FaHome,
   FaPlusSquare,
@@ -12,7 +13,7 @@ import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 
 const DashBoard = () => {
-  const { user } = useContext(AuthContext);
+  const { user, loading } = useContext(AuthContext);
   const [userInfo, setUserinfo] = useState(null);
   // const user = "soyeb";
   useEffect(() => {
@@ -23,6 +24,9 @@ const DashBoard = () => {
       });
   }, [user?.email]);
   console.log({ userInfo }, user?.email);
+  if (loading) {
+    return <progress className="progress w-56"></progress>;
+  }
   return (
     <div>
       <TopNav></TopNav>
@@ -50,6 +54,11 @@ const DashBoard = () => {
             {userInfo?.role == "admin" ? (
               <>
                 <h1 className="uppercase">{userInfo?.role}</h1>
+                <li>
+                  <Link to="/dashboard/all-appointment">
+                    <FaPlusSquare></FaPlusSquare> এপয়েন্টমেন্টস দেখুন
+                  </Link>
+                </li>
                 <li>
                   <Link to="/dashboard/addFeatures">
                     <FaPlusSquare></FaPlusSquare> ফিচার এডড করুন
@@ -83,6 +92,18 @@ const DashBoard = () => {
               <>
                 <h1 className="uppercase">{userInfo?.name}</h1>
 
+                <li>
+                  <Link to="/dashboard/appointment" className="text-white">
+                    {" "}
+                    <FaBookMedical></FaBookMedical> এপয়েন্টমেন্টস নিন{" "}
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/dashboard/my-appointment" className="text-white">
+                    {" "}
+                    <FaBookMedical></FaBookMedical> আমার এপয়েন্টমেন্টস{" "}
+                  </Link>
+                </li>
                 <li>
                   <Link to="/dashboard/review" className="text-white">
                     {" "}
