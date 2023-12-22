@@ -15,12 +15,9 @@ const UsersTable = ({ users, refetch }) => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(
-          `https://hospitalupdate.abinashfoundation.com/user-route/deleteUser/${person._id}`,
-          {
-            method: "DELETE",
-          }
-        )
+        fetch(`http://localhost:5000/user-route/deleteUser/${person._id}`, {
+          method: "DELETE",
+        })
           .then((res) => res.json())
           .then((data) => {
             console.log(data);
@@ -35,12 +32,9 @@ const UsersTable = ({ users, refetch }) => {
 
   const handleMakeUserToAdmin = (person) => {
     if (person.role === "user") {
-      fetch(
-        `https://hospitalupdate.abinashfoundation.com/user-route/makeAdmin/${person._id}`,
-        {
-          method: "PUT",
-        }
-      )
+      fetch(`http://localhost:5000/user-route/makeAdmin/${person._id}`, {
+        method: "PUT",
+      })
         .then((res) => res.json())
         .then((data) => {
           console.log(data);
@@ -56,12 +50,9 @@ const UsersTable = ({ users, refetch }) => {
           }
         });
     } else {
-      fetch(
-        `https://hospitalupdate.abinashfoundation.com/user-route/makeUser/${person._id}`,
-        {
-          method: "PUT",
-        }
-      )
+      fetch(`http://localhost:5000/user-route/makeUser/${person._id}`, {
+        method: "PUT",
+      })
         .then((res) => res.json())
         .then((data) => {
           console.log(data);

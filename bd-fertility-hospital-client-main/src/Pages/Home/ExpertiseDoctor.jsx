@@ -5,9 +5,7 @@ const ExpertiseDoctor = () => {
   const [doctors, setDoctors] = useState([]);
 
   useEffect(() => {
-    fetch(
-      "https://hospitalupdate.abinashfoundation.com/doctor-route/getAllDoctors"
-    )
+    fetch("http://localhost:5000/doctor-route/getAllDoctors")
       .then((res) => res.json())
       .then((data) => {
         console.log(data.result);

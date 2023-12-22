@@ -5,9 +5,7 @@ const Features = () => {
   const [features, setFeatures] = useState([]);
 
   useEffect(() => {
-    fetch(
-      "https://hospitalupdate.abinashfoundation.com/bd-fertility/getAllFeatures"
-    )
+    fetch("http://localhost:5000/bd-fertility/getAllFeatures")
       .then((res) => res.json())
       .then((data) => {
         setFeatures(data.result);

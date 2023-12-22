@@ -25,16 +25,13 @@ const Register = () => {
     };
 
     console.log(user);
-    fetch(
-      "https://hospitalupdate.abinashfoundation.com/user-route/createUser",
-      {
-        method: "POST",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify(user),
-      }
-    )
+    fetch("http://localhost:5000/user-route/createUser", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(user),
+    })
       .then((res) => res.json)
       .then((data) => {
         console.log(data);

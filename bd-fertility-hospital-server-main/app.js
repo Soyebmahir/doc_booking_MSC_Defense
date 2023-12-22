@@ -8,7 +8,7 @@ const featureRoute = require("./src/Module/Features/featureRoute.js");
 const doctorRoute = require("./src/Module//Doctors/doctorsRoute.js");
 const usersRoute = require("./src/Module/Users/userRoute");
 const blogRoute = require("./src/Module/Blog/blogRoute.js");
-// const allGalleryRoute = require("./src/Module/Gallery/galleryRoute.js");
+const allGalleryRoute = require("./src/Module/Gallery/galleryRoute.js");
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -35,7 +35,7 @@ app.use("/user-route", usersRoute);
 app.use("/doctor-route", doctorRoute);
 app.use("/blog-route", blogRoute); // Use the router directly
 app.use("/bd-fertility", featureRoute);
-// app.use("/gallery-route", allGalleryRoute);
+app.use("/gallery-route", allGalleryRoute);
 
 app.get("/", (req, res) => {
   res.send("Route is working! YaY!");

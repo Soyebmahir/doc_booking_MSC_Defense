@@ -31,7 +31,7 @@ const AddDoctors = () => {
 
     console.log(doctorData);
 
-    fetch("https://hospitalupdate.abinashfoundation.com/doctor-route/create", {
+    fetch("http://localhost:5000/doctor-route/create", {
       method: "POST",
       headers: {
         "content-type": "application/json",

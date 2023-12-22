@@ -4,9 +4,7 @@ const useUsers = () => {
   const { data: users = [], refetch } = useQuery({
     queryKey: ["users"],
     queryFn: async () => {
-      const res = await fetch(
-        "https://hospitalupdate.abinashfoundation.com/user-route/getAllUser"
-      );
+      const res = await fetch("http://localhost:5000/user-route/getAllUser");
       return res.json();
     },
   });

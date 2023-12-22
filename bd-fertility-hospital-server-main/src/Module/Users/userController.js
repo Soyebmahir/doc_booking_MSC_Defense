@@ -16,10 +16,17 @@ const createUser = async (req, res) => {
 
 const logInUser = async (req, res) => {
   try {
+    // console.log(req.body);
     const { email, password } = req.body;
     const user = await Users.findOne({ email: email });
+    console.log(user);
     if (user) {
-      if (user.password === password) {
+      const isPasswordValid = await user.comparePassword(
+        password,
+        user.password
+      );
+      console.log({ isPasswordValid });
+      if (isPasswordValid) {
         res.json("success");
       } else {
         res.json("the password is incorrect");

@@ -8,9 +8,7 @@ const ManageUsers = () => {
   const [allUser, setAllUser] = useState([]);
 
   const handleSearch = () => {
-    fetch(
-      `https://hospitalupdate.abinashfoundation.com/user-route/search/${searchText}`
-    )
+    fetch(`http://localhost:5000/user-route/search/${searchText}`)
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
@@ -23,7 +21,7 @@ const ManageUsers = () => {
   };
 
   useEffect(() => {
-    fetch("https://hospitalupdate.abinashfoundation.com/user-route/getAllUser")
+    fetch("http://localhost:5000/user-route/getAllUser")
       .then((res) => res.json())
       .then((data) => {
         refetch();

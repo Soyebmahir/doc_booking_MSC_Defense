@@ -17,8 +17,10 @@ const Login = () => {
       email,
       password,
     };
+    console.log(user);
+    // http://localhost:5000
 
-    fetch("https://hospitalupdate.abinashfoundation.com/user-route/login", {
+    fetch("http://localhost:5000/user-route/login", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -42,6 +44,7 @@ const Login = () => {
             position: "top-end",
             icon: "success",
             title: "check your email and password",
+            // title: data,
             showConfirmButton: false,
             timer: 1500,
           });

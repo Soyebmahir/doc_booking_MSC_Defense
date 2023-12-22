@@ -16,7 +16,7 @@ const AddFeatures = () => {
     };
     console.log(features);
 
-    fetch("https://hospitalupdate.abinashfoundation.com/bd-fertility/create", {
+    fetch("http://localhost:5000/bd-fertility/create", {
       method: "POST",
       headers: {
         "content-type": "application/json",

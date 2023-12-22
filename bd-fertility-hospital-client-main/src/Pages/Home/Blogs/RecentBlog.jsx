@@ -7,7 +7,7 @@ const RecentBlog = () => {
   const [blogs, setBlogs] = useState([]);
 
   useEffect(() => {
-    fetch("https://hospitalupdate.abinashfoundation.com/blog-route/getAllBlogs")
+    fetch("http://localhost:5000/blog-route/getAllBlogs")
       .then((res) => res.json())
       .then((data) => {
         console.log("the blog is", data?.result);

@@ -4,9 +4,7 @@ const ServiceGallary = () => {
   const [images, setImgaes] = useState([]);
 
   useEffect(() => {
-    fetch(
-      "https://hospitalupdate.abinashfoundation.com/Gallery-route/getAllServiceGallery"
-    )
+    fetch("http://localhost:5000/Gallery-route/getAllServiceGallery")
       .then((res) => res.json())
       .then((data) => {
         console.log(data);

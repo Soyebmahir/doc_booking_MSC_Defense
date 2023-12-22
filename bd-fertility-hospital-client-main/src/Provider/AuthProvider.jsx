@@ -18,9 +18,7 @@ const auth = getAuth(app);
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   useEffect(() => {
-    fetch(
-      `https://hospitalupdate.abinashfoundation.com/user-route/getSingleUser/${user?.email}`
-    )
+    fetch(`http://localhost:5000/user-route/getSingleUser/${user?.email}`)
       .then((res) => res.json())
       .then((data) => {
         setUser(data);

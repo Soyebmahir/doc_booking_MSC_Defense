@@ -15,16 +15,13 @@ const AddBlog = () => {
     };
     console.log(blog);
 
-    fetch(
-      "https://hospitalupdate.abinashfoundation.com/blog-route/createBlog",
-      {
-        method: "POST",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify(blog),
-      }
-    )
+    fetch("http://localhost:5000/blog-route/createBlog", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(blog),
+    })
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
