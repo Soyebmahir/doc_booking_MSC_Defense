@@ -47,7 +47,7 @@ const BookingModal = ({ date, treatment, setTreatment }) => {
     })
       .then((res) => res.json())
       .then((data) => {
-        if (data.success) {
+        if (data) {
           Swal.fire({
             position: "top-end",
             icon: "success",
