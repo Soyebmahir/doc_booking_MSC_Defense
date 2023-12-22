@@ -5,12 +5,12 @@ import { initializeApp } from "firebase/app";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyDl85Vcrem34QVlPtD-LvYWlB0VSb8Sokg",
-  authDomain: "bd-fertility.firebaseapp.com",
-  projectId: "bd-fertility",
-  storageBucket: "bd-fertility.appspot.com",
-  messagingSenderId: "331308311844",
-  appId: "1:331308311844:web:6827cf17d2d8ee8cb03fb1"
+  apiKey: "AIzaSyDeuOYASRJFzZ4ma8ptTy0cMBbrnUCvX8w",
+  authDomain: "mscproject-5ea16.firebaseapp.com",
+  projectId: "mscproject-5ea16",
+  storageBucket: "mscproject-5ea16.appspot.com",
+  messagingSenderId: "1072544868486",
+  appId: "1:1072544868486:web:7983bfd74f98db07b04907",
 };
 
 // Initialize Firebase

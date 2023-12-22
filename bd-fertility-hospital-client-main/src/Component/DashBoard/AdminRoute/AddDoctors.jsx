@@ -57,7 +57,7 @@ const AddDoctors = () => {
     <div>
       <div className="p-8 rounded border border-gray-200">
         {" "}
-        <h1 className="font-medium text-3xl">Add A Book</h1>{" "}
+        <h1 className="font-medium text-3xl">Add A Doctor</h1>{" "}
         <form onSubmit={hanbdlAddDoctorSubmit}>
           {" "}
           <div className="mt-8 grid lg:grid-cols-2 gap-4">

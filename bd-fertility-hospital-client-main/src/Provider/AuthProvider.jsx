@@ -17,13 +17,14 @@ const auth = getAuth(app);
 
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
-  useEffect(() => {
-    fetch(`http://localhost:5000/user-route/getSingleUser/${user?.email}`)
-      .then((res) => res.json())
-      .then((data) => {
-        setUser(data);
-      });
-  }, [user?.email]);
+  console.log("Authprovider", { user });
+  // useEffect(() => {
+  //   fetch(`http://localhost:5000/user-route/getSingleUser/${user?.email}`)
+  //     .then((res) => res.json())
+  //     .then((data) => {
+  //       setUser(data);
+  //     });
+  // }, [user?.email]);
 
   const [loading, setLoading] = useState(true);
 

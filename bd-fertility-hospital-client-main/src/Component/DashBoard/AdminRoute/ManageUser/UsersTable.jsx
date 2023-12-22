@@ -20,6 +20,7 @@ const UsersTable = ({ users, refetch }) => {
         })
           .then((res) => res.json())
           .then((data) => {
+            window.location.reload();
             console.log(data);
             if (data.result.deletedCount > 0) {
               refetch();
@@ -37,9 +38,10 @@ const UsersTable = ({ users, refetch }) => {
       })
         .then((res) => res.json())
         .then((data) => {
+          // refetch();
+          window.location.reload();
           console.log(data);
           if (data) {
-            refetch();
             return Swal.fire({
               position: "top-end",
               icon: "success",
@@ -56,8 +58,9 @@ const UsersTable = ({ users, refetch }) => {
         .then((res) => res.json())
         .then((data) => {
           console.log(data);
+          window.location.reload();
           if (data) {
-            refetch();
+            // refetch();
             return Swal.fire({
               position: "top-end",
               icon: "success",
@@ -66,6 +69,7 @@ const UsersTable = ({ users, refetch }) => {
               timer: 1500,
             });
           }
+          refetch();
         });
     }
   };

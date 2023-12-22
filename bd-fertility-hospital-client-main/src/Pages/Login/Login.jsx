@@ -1,11 +1,14 @@
 /* eslint-disable react/no-unknown-property */
 
 // import { useContext } from "react";
+import { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
+import { AuthContext } from "../../Provider/AuthProvider";
 
 const Login = () => {
   const navigate = useNavigate();
+  const { signIn } = useContext(AuthContext);
 
   const handleLoginSubmit = (event) => {
     event.preventDefault();
@@ -20,36 +23,56 @@ const Login = () => {
     console.log(user);
     // http://localhost:5000
 
-    fetch("http://localhost:5000/user-route/login", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(user),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-        if (data === "success") {
-          Swal.fire({
-            position: "top-end",
-            icon: "success",
-            title: "Login Successfully",
-            showConfirmButton: false,
-            timer: 1500,
-          });
-          navigate("/");
-        } else {
-          Swal.fire({
-            position: "top-end",
-            icon: "success",
-            title: "check your email and password",
-            // title: data,
-            showConfirmButton: false,
-            timer: 1500,
-          });
-        }
+    signIn(email, password)
+      .then((result) => {
+        Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: "Login Successfully",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+        navigate("/");
+      })
+      .catch((error) => {
+        Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: "Something went wrong",
+          showConfirmButton: false,
+          timer: 1500,
+        });
       });
+    // fetch("http://localhost:5000/user-route/login", {
+    //   method: "POST",
+    //   headers: {
+    //     "content-type": "application/json",
+    //   },
+    //   body: JSON.stringify(user),
+    // })
+    //   .then((res) => res.json())
+    //   .then((data) => {
+    //     console.log(data);
+    //     if (data === "success") {
+    //       Swal.fire({
+    //         position: "top-end",
+    //         icon: "success",
+    //         title: "Login Successfully",
+    //         showConfirmButton: false,
+    //         timer: 1500,
+    //       });
+    //       navigate("/");
+    //     } else {
+    //       Swal.fire({
+    //         position: "top-end",
+    //         icon: "success",
+    //         title: "check your email and password",
+    //         // title: data,
+    //         showConfirmButton: false,
+    //         timer: 1500,
+    //       });
+    //     }
+    //   });
   };
 
   return (

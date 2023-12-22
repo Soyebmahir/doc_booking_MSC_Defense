@@ -1,10 +1,11 @@
-// import { useContext } from "react";
+import { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
-// import { AuthContext } from "../../Provider/AuthProvider";
+import { AuthContext } from "../../Provider/AuthProvider";
 
 const Register = () => {
-  // const {createUser,updateUserNameAndPhoto,logOut} = useContext(AuthContext)
+  const { createUser, updateUserNameAndPhoto, logOut } =
+    useContext(AuthContext);
   const navigate = useNavigate();
 
   const handleRegisterSubmit = (event) => {
@@ -25,37 +26,63 @@ const Register = () => {
     };
 
     console.log(user);
-    fetch("http://localhost:5000/user-route/createUser", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(user),
-    })
-      .then((res) => res.json)
-      .then((data) => {
-        console.log(data);
-        if (data) {
-          Swal.fire({
-            position: "top-end",
-            icon: "success",
-            title: "Great user is created",
-            showConfirmButton: false,
-            timer: 1500,
-          });
-        }
-        navigate("/login");
-      });
-
-    // createUser(email,password)
-    // .then(result => {
-    //     const registerUser = result.user
-    //     console.log(registerUser)
-    //     updateUserNameAndPhoto(name,photo)
-    //     logOut()
-
-    //     navigate('/login')
+    // fetch("http://localhost:5000/user-route/createUser", {
+    //   method: "POST",
+    //   headers: {
+    //     "content-type": "application/json",
+    //   },
+    //   body: JSON.stringify(user),
     // })
+    //   .then((res) => res.json)
+    //   .then((data) => {
+    //     console.log(data);
+    //     if (data) {
+    //       Swal.fire({
+    //         position: "top-end",
+    //         icon: "success",
+    //         title: "Great user is created",
+    //         showConfirmButton: false,
+    //         timer: 1500,
+    //       });
+    //     }
+    //     navigate("/login");
+    //   });
+
+    createUser(email, password).then((result) => {
+      Swal.fire({
+        position: "top-end",
+        icon: "success",
+        title: "Great user is created",
+        showConfirmButton: false,
+        timer: 1500,
+      });
+      // const registerUser = result.user;
+      // console.log(registerUser);
+      // updateUserNameAndPhoto(name, photo);
+      // logOut();
+      fetch("http://localhost:5000/user-route/createUser", {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(user),
+      })
+        .then((res) => res.json)
+        .then((data) => {
+          console.log(data);
+          // if (data) {
+          //   Swal.fire({
+          //     position: "top-end",
+          //     icon: "success",
+          //     title: "Great user is created",
+          //     showConfirmButton: false,
+          //     timer: 1500,
+          //   });
+          // }
+        });
+
+      navigate("/");
+    });
   };
 
   return (
